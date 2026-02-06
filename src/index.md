@@ -1,18 +1,6 @@
 ---
-title: "The Accessibility Impostors Game Show"
-layout: "base.njk"
+eleventyComputed:
+  title: "{{ site.name }}"
+  h1: "{{ site.name }}"
+layout: "splash.njk"
 ---
-
-<main>
-  <div class="container">
-    <h1>
-      <a href="https://www.deque.com/axe-con/sessions/the-accessibility-impostors-game-show">{{ title }}</a>
-    </h1>
-    <p>Wednesday, February 25th at 1:00pm US/Eastern</p>
-  </div>
-</main>
-<footer role="contentinfo">
-  <a href="https://www.deque.com/axe-con/">
-    <img src="img/axe-con-logo.svg" alt="axe-con 2026">
-  </a>
-</footer>
