@@ -9,15 +9,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap">
     {% set css %}
       {% include "css/base.css" %}
-      {% if tag == 'round' %}
+      {% if tags and 'game' in tags  %}
       {% include "css/game.css" %}
       {% endif %}
     {% endset %}
     <style>
       {{ css | cssmin | safe }}
     </style>
-    {% if tag == 'round' %}
+    {% if tags and 'game' in tags  %}
     <script src="./game.js" type="module"></script>
+    {% endif %}
+    {% if libraries === 'floatingui' %}
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.7.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.7.4"></script>
+    <script src="./tooltip.js" type="module"></script>
     {% endif %}
   </head>
   <body>

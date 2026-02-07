@@ -3,11 +3,11 @@ name: "Round #1"
 eleventyComputed:
   title: "{{ name }} / {{ site.name }}"
   h1: "{{ name }}: Text Color"
-tag: round  
+tags: game  
 layout: "game.njk"
 ---
 
-<section id="text-1" aria-labelledby="" role="region">
+<section id="sample-1" aria-labelledby="" role="region">
   <figure>
     <figcaption>Text Color #1</figcaption>
     <div class="figtray" tabindex="0">
@@ -20,7 +20,7 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="text-2" aria-labelledby="" role="region">
+<section id="sample-2" aria-labelledby="" role="region">
   <figure>
     <figcaption>Text Color #2</figcaption>
     <div class="figtray" tabindex="0">
@@ -34,7 +34,7 @@ layout: "game.njk"
 </section>
 
 
-<section id="text-3" aria-labelledby="" role="region">
+<section id="sample-3" aria-labelledby="" role="region">
   <figure>
     <figcaption>Text Color #3</figcaption>
     <div class="figtray" tabindex="0">

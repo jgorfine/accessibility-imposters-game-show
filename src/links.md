@@ -3,11 +3,11 @@ name: "Round #2"
 eleventyComputed:
   title: "{{ name }} / {{ site.name }}"
   h1: "{{ name }}: Links"
-tag: round
+tags: game
 layout: "game.njk"
 ---
 
-<section id="link-1" aria-labelledby="" role="region">
+<section id="sample-1" aria-labelledby="" role="region">
   <figure>
     <figcaption>Link #1</figcaption>
     <div class="figtray" tabindex="0">
@@ -16,7 +16,7 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="link-2" aria-labelledby="" role="region">
+<section id="sample-2" aria-labelledby="" role="region">
   <figure>
     <figcaption>Link #2</figcaption>
     <div class="figtray" tabindex="0">
@@ -25,7 +25,7 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="link-3" aria-labelledby="" role="region">
+<section id="sample-3" aria-labelledby="" role="region">
   <figure>
     <figcaption>Link #3</figcaption>
     <div class="figtray" tabindex="0">
@@ -34,7 +34,7 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="link-4" aria-labelledby="" role="region">
+<section id="sample-4" aria-labelledby="" role="region">
   <figure>
     <figcaption>Link #4</figcaption>
     <div class="figtray" tabindex="0">

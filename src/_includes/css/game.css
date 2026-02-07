@@ -49,7 +49,7 @@ figcaption {
 }
 
 .figtray {
-  background: var(--axecon-color-1);
+  /* background: var(--axecon-color-1); */
   display: flex;
   flex: 1 1 100%;
   justify-content: center;
@@ -116,4 +116,52 @@ figure [role="link"].style--2:focus  {
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
+}
+
+figure button:has(svg:only-of-type) {
+  align-items: center;
+  background-color: var(--axecon-color-2);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  height: 42px;
+  justify-content: center;
+  outline: 1px solid transparent;
+  width: 42px;
+}
+
+figure button:has(svg:only-of-type):hover {
+  background-color: #fff;
+  color: var(--axecon-color-2);
+}
+
+figure button:has(svg:only-of-type):focus {
+  outline: 3px solid #0dbaf7
+}
+
+figure button svg:only-of-type {
+  display: block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+}
+
+figure [role="tooltip"] {
+  background-color: var(--axecon-color-1);
+  display: none;
+  left: 0;
+  padding: 0.5em;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: max-content;
+}
+
+figure [role="tooltip"] .arrow {
+  background-color: var(--axecon-color-1);
+  height: 8px;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 8px;
 }
