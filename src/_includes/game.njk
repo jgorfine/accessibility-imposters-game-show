@@ -1,0 +1,56 @@
+---
+layout: "base.njk"
+---
+
+<header>
+  <a href="">{{ site.name }}</a>
+</header>
+<main>
+  <div>
+    <h1>{{ h2 }}</h1>
+    <section aria-labelledby="" role="region">
+      <h2 id=""></h2>
+      <div class="grid">
+        {{ content | safe }}
+      </div>
+    </section>
+    <section aria-labelledby="" role="region" data-controller="game" data-game-index-value="0">
+      <h2 id=""></h2>
+      <div role="toolbar">
+        <button
+          data-game-target="control"
+          data-action="game#toggleSound keydown.right->game#next keydown.left->game#prev" 
+          tabindex="0"
+          role="switch" 
+          type="button"
+        >
+          <span>Count down music</span>
+        </button>
+        <button
+          data-game-target="control"
+          data-action="game#toggleTimer keydown.right->game#next keydown.left->game#prev" 
+          tabindex="-1"
+          type="button"
+        >
+          Start count down
+        </button>
+        <div 
+          data-game-target="timer" 
+          role="timer"
+        >
+          03:00
+        </div>
+        <button 
+          data-game-target="control" 
+          data-action="game#toggleReveal keydown.right->game#next keydown.left->game#prev" 
+          tabindex="-1"
+          type="button"
+        >
+          Reveal impostor
+        </button>
+      </div>
+      <div data-game-target="liveregion" role="status" aria-role="polite"></div>
+      <audio></audio>
+    </section>
+  </div>
+</main>

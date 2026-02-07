@@ -1,0 +1,8 @@
+h1 {
+  margin: 0;
+}
+
+[role="toolbar"] {
+  display: flex;
+  gap: 1em;
+}

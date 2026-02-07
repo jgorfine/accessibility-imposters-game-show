@@ -4,5 +4,5 @@ eleventyComputed:
   title: "{{ name }} / {{ site.name }}"
   h1: "{{ name }}: Text Color"
 tag: round  
-layout: "splash.njk"
+layout: "game.njk"
 ---

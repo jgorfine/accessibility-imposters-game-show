@@ -2,7 +2,11 @@ import CleanCSS from "clean-css";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("**/*.svg", {
-    mode: "html-relative",
+    mode: "html-relative"
+  });
+
+  eleventyConfig.addPassthroughCopy("src/*.js", {
+    mode: "html-relative"
   });
   
   eleventyConfig.addFilter("cssmin", function(code) {
