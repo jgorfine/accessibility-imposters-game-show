@@ -2,20 +2,14 @@
 layout: "base.njk"
 ---
 
-<header>
-  <a href="">{{ site.name }}</a>
-</header>
-<main>
-  <div>
-    <h1>{{ h2 }}</h1>
-    <section aria-labelledby="" role="region">
-      <h2 id=""></h2>
-      <div class="grid">
-        {{ content | safe }}
-      </div>
-    </section>
-    <section aria-labelledby="" role="region" data-controller="game" data-game-index-value="0">
-      <h2 id=""></h2>
+<main data-controller="game" data-game-index-value="0">
+  <div class="topper">
+    <div>
+      <a href="">{{ site.name }}</a>
+      <h1>{{ h1 }}</h1>
+    </div>
+    <section id="" aria-labelledby="" role="region">
+      <h2 id="" class="sr-only"></h2>
       <div role="toolbar">
         <button
           data-game-target="control"
@@ -53,4 +47,10 @@ layout: "base.njk"
       <audio></audio>
     </section>
   </div>
+  <section id="stage" aria-labelledby="" role="region">
+    <h2 id="" class="sr-only"></h2>
+    <div class="grid">
+      {{ content | safe }}
+    </div>
+  </section>
 </main>

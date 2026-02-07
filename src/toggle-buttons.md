@@ -4,5 +4,5 @@ eleventyComputed:
   title: "{{ name }} / {{ site.name }}"
   h1: "{{ name }}: Toggle Buttons"
 tag: round
-layout: "splash.njk"
+layout: "game.njk"
 ---

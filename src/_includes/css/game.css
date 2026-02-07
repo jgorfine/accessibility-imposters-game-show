@@ -1,8 +1,119 @@
-h1 {
-  margin: 0;
+body {
+  background-color: var(--axecon-color-4);
+}
+
+.topper {
+  align-items: flex-end;
+  background-color: var(--axecon-color-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+main {
+  background: linear-gradient(180deg,var(--axecon-color-3) 0,var(--axecon-color-4) 100%);
 }
 
 [role="toolbar"] {
   display: flex;
   gap: 1em;
+}
+
+#stage {
+  padding: 1em;
+}
+
+.grid {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
+}
+
+
+figure {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #fff;
+  margin: 0;
+  min-height: 33vh;
+}
+
+figcaption {
+  background-color: var(--axecon-color-2);
+  color: #fff;
+  flex: none;
+  line-height: 1.1;
+  padding: 2em;
+  text-align: center;
+}
+
+.figtray {
+  background: var(--axecon-color-1);
+  display: flex;
+  flex: 1 1 100%;
+  justify-content: center;
+  padding: 1em;
+}
+
+.figtray > * {
+  margin: auto;
+}
+
+figure a, 
+figure [role="link"] {
+  color: #fff;
+  text-decoration: none;
+}
+
+figure a:hover, 
+figure a:active, 
+figure a:visited {
+  color: #fff;
+}
+
+figure a:focus, 
+figure [role="link"]:focus {
+  outline: none;
+}
+
+figure a.style--1, 
+figure [role="link"].style--1 {
+  background-color: var(--axecon-color-1);
+  background-image: linear-gradient(90deg,#e466fa 5px, var(--axecon-color-1) 5px);
+  background-position: -5px center;
+  background-repeat: no-repeat;
+  display: block;
+  font-size: 20px;
+  padding: 10px 30px;
+  /* width: 295px; */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  figure a.style--1, 
+  figure [role="link"].style--1 {
+    transition: background-position 250ms ease-in-out;
+  }
+}
+
+figure a.style--1:hover, 
+figure [role="link"].style--1:hover, 
+figure a.style--1:focus, 
+figure [role="link"].style--1:focus {
+  background-position: 0 center;
+}
+
+figure a.style--2, 
+figure [role="link"].style--2 {
+  color: #fff;
+  font-size: 24px;
+}
+
+figure a.style--2:hover, 
+figure [role="link"].style--2:hover, 
+figure a.style--2:focus, 
+figure [role="link"].style--2:focus  {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
 }
