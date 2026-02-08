@@ -58,6 +58,8 @@ Stimulus.register("timer", class extends Controller {
   static values = { active: Boolean }
 
   start() {
+    let additionalOptions;
+
     const now = new Date();
     const nowPlus3Mins = new Date(now.setMinutes(now.getMinutes() + 3));
 
@@ -67,23 +69,38 @@ Stimulus.register("timer", class extends Controller {
     const hours = nowPlus3Mins.getHours();
     const minutes = nowPlus3Mins.getMinutes();
 
-    const countdown = simplyCountdown(this.countdownTarget, {
+    const options = {
       year,
       month,
       day,
       hours,
       minutes,
-      inline: true,
-      inlineSeparator: ', ',
       removeZeroUnits: true,
       onEnd: () => {},
       onStop: () => {},
       onResume: () => {},
-      onUpdate: (params) => {}
-    });
+      onUpdate: (params) => {}, 
+    }
+
+    console.log("format", this.formatTarget.checked);
+
+    if (this.formatTarget.checked) {
+      additionalOptions = {
+        inline: true,
+        inlineSeparator: ', ',
+      }
+    } else {
+      additionalOptions = {
+        wordClass: 'simply-word',
+        plural: false,
+        zeroPad: true,
+      }
+    }
+
+    const countdown = simplyCountdown(this.countdownTarget, {...options, ...additionalOptions});
 
     window.sharedObject = countdown;
-    
+
     // this.offTarget.firstChild().focus();
 
     this.activeValue = !this.activeValue;

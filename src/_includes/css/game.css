@@ -28,6 +28,10 @@ h1,
   line-height: 1;
 }
 
+[role="timer"] .simply-word {
+  display: none;
+}
+
 [role="timer"]:focus-visible {
   outline: 3px solid magenta;
 }
