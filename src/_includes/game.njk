@@ -5,32 +5,30 @@ layout: "base.njk"
 <main data-controller="game" data-game-index-value="0">
   <div class="topper" data-controller="timelimit timer">
     <h1>{{ h1 }}</h1>
-    <div class="abc" data-timelimit-target="container" data-timer-active-value="false">
-      <div data-timer-target="countdown" role="timer" tabindex="-1">
-        <span data-timer-target="initial">03:00</span>
+    <div class="abc" data-timelimit-target="container" data-timer-setup-value="false" data-timer-active-value="false">
+      <div data-timer-target="display" role="timer" tabindex="-1">
+        <span>03:00</span>
       </div>
-      <div class="toggle" data-timer-target="on">
-        <button
-          data-action="timer#start keydown.right->game#next keydown.left->game#prev" 
-          type="button"
-        >
-          <svg class="icon--on" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
-            <path d="M360-840v-80h240v80H360Zm-19.5 731.5Q275-137 226-186t-77.5-114.5Q120-366 120-440t28.5-139.5Q177-645 226-694t114.5-77.5Q406-800 480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80q-74 0-139.5-28.5ZM678-242q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82ZM480-440Zm-80 160 240-160-240-160v320Z"/>
-          </svg>
-          <span class="sr-only">Start timer</span>
-        </button>
-      </div>
-      <div class="toggle" data-timer-target="off" hidden>
-        <button
-          data-action="timer#pause keydown.right->game#next keydown.left->game#prev" 
-          type="button"
-        >
-          <svg class="icon--off" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
-            <path d="M360-840v-80h240v80H360Zm-19.5 731.5Q275-137 226-186t-77.5-114.5Q120-366 120-440t28.5-139.5Q177-645 226-694t114.5-77.5Q406-800 480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80q-74 0-139.5-28.5ZM678-242q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82ZM480-440ZM360-280h80v-320h-80v320Zm160 0h80v-320h-80v320Z"/>
-          </svg>
-          <span class="sr-only">Pause timer</span>
-        </button>
-      </div>
+      <button
+        data-action="timer#start keydown.right->game#next keydown.left->game#prev" 
+        type="button"
+      >
+        <svg class="icon--on" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
+          <path d="M360-840v-80h240v80H360Zm-19.5 731.5Q275-137 226-186t-77.5-114.5Q120-366 120-440t28.5-139.5Q177-645 226-694t114.5-77.5Q406-800 480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80q-74 0-139.5-28.5ZM678-242q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82ZM480-440Zm-80 160 240-160-240-160v320Z"/>
+        </svg>
+        <span class="sr-only">Start timer</span>
+        <span>Start timer</span>
+      </button>
+      <button
+        data-action="timer#toggle keydown.right->game#next keydown.left->game#prev" 
+        type="button"
+      >
+        <svg class="icon--off" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
+          <path d="M360-840v-80h240v80H360Zm-19.5 731.5Q275-137 226-186t-77.5-114.5Q120-366 120-440t28.5-139.5Q177-645 226-694t114.5-77.5Q406-800 480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80q-74 0-139.5-28.5ZM678-242q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82ZM480-440ZM360-280h80v-320h-80v320Zm160 0h80v-320h-80v320Z"/>
+        </svg>
+        <span class="sr-only">Pause timer</span>
+        <span>Toggle timer</span>
+      </button>
     </div>
     <section id="" aria-labelledby="" role="region">
       <h2 id="" class="sr-only"></h2>

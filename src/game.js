@@ -54,82 +54,64 @@ Stimulus.register("timelimit", class extends Controller {
 })
 
 Stimulus.register("timer", class extends Controller {
-  static targets = [ "on", "off", "countdown", "format", "initial" ]
+  static targets = [ "display", "format" ]
   static values = { active: Boolean }
 
-  start() {
-    let additionalOptions;
-
+  connect () {
     const now = new Date();
-    const nowPlus3Mins = new Date(now.setMinutes(now.getMinutes() + 3));
+    const future = new Date(now.setMinutes(now.getMinutes() + 3));
+    window.timeFromNow = future.getTime();
+  }
 
-    const year = nowPlus3Mins.getFullYear();
-    const month = nowPlus3Mins.getMonth() + 1;
-    const day = nowPlus3Mins.getDate();
-    const hours = nowPlus3Mins.getHours();
-    const minutes = nowPlus3Mins.getMinutes();
+  setUpTimer() {
+    // Get today's date and time
+    const now = new Date().getTime();
 
-    const options = {
-      year,
-      month,
-      day,
-      hours,
-      minutes
-    }
+    // Find the distance between now and the count down date
+    const distance = window.timeFromNow - now;
 
-    const optionsA = {
-      inline: true,
-      inlineSeparator: ', ',
-      removeZeroUnits: true,
-    }
+    // Time calculations for days, hours, minutes and seconds
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    window.sharedObject2 = optionsA;
+    const current = minutes + "m " + seconds + "s ";
+    console.log({ current });
 
-    const optionsB = {
-      plural: false,
-      zeroPad: true,
-    }
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = seconds.toString().padStart(2, '0');
 
-    window.sharedObject3 = optionsB;
+    const currentFormatted = `${formattedMinutes}:${formattedSeconds}`;
+    console.log({ currentFormatted });
 
-    console.log("format", this.formatTarget.checked);
+    // Display the result in the element with id="demo"
+    // this.displayTarget.innerHTML = minutes + "m " + seconds + "s ";
 
-    additionalOptions = this.formatTarget.checked ? optionsA : optionsB;
+    // If the count down is finished, write some text
+    // if (distance < 0) {
+    //   clearInterval(x);
+    //   this.displayTarget.innerHTML = "Finished!";
+    // }
+  }
 
-    this.initialTarget.remove();
-
-    const countdown = simplyCountdown(this.countdownTarget, {...options, ...additionalOptions});
-
-    window.sharedObject = countdown;
-
-    // this.offTarget.firstChild().focus();
-
-    this.activeValue = !this.activeValue;
+  start() {
+    window.foo = setInterval(this.setUpTimer, 1000);
   }
 
   pause() {
-    console.log("pausing", window.sharedObject);
-    if (window.sharedObject) {
-      const state = window.sharedObject.getState();
-      if (state.isPaused) {
-        window.sharedObject.resumeCountdown();
-      } else {
-        window.sharedObject.stopCountdown();
-      }
+    clearInterval(window.foo);
+    window.foo = null; // helps track if the interval is currently running
+  }
+
+  toggle() {
+    if (window.foo) {
+      pauseInterval(); // If running, pause it
+    } else {
+      startInterval(); // If paused, start it
     }
   }
 
-  formatValueChanged() {
-    console.log('format value changed', this.formatTarget.checked);
-    if (window.sharedObject && window.sharedObject2 && window.sharedObject3) {
-      const newOptions = this.formatTarget.checked ? window.sharedObject2 : window.sharedObject3;
-      window.sharedObject.updateCountdown(newOptions);
-    }
-  }
-
-  activeValueChanged() {
-    this.onTarget.hidden = this.activeValue === true;
-    this.offTarget.hidden = this.activeValue === false;
+  disconnect() {
+    delete window.foo;
   }
 })
 
