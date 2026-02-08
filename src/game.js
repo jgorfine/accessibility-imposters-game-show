@@ -3,7 +3,7 @@ import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/di
 window.Stimulus = Application.start()
 
 Stimulus.register("game", class extends Controller {
-  static targets = [ "control", "timer", "liveregion" ]
+  static targets = [ "control", "liveregion" ]
   static values = { index: Number }
 
   // Navigation 
@@ -38,23 +38,21 @@ Stimulus.register("game", class extends Controller {
   }
 
   // Actions
-
-  toggleCountdownVisible() {
-    if (window.getComputedStyle(this.timerTarget).display === "block") {
-      this.timerTarget.focus();
-    }
-  }
-
-  toggleCountdown() {
-    console.log("toggling countdown running")
-  }
-
   toggleReveal() {
     console.log("toggling impostor")
   }
 })
 
-Stimulus.register("thing", class extends Controller {
+Stimulus.register("timelimit", class extends Controller {
+  static targets = [ "container", "thing2", "input"]
+
+  toggle() {
+    this.containerTarget.hidden = this.inputTarget.checked === false;
+    this.thing2Target.hidden = this.inputTarget.checked === false;
+  }
+})
+
+Stimulus.register("timer", class extends Controller {
   static targets = [ "button", "on", "off" ]
   static values = { active: Boolean }
 

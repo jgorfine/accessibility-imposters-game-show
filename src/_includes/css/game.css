@@ -15,9 +15,9 @@ body {
 }
 
 [role="timer"] {
-  display: none;
   font-size: 3em;
   font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
 
 [role="timer"]:focus-visible {
@@ -34,17 +34,17 @@ body {
   gap: 0.5em;
 }
 
-[role="toolbar"] .toggle, 
-[role="toolbar"] .toggle button {
+.toggle, 
+.toggle button {
   position: relative;
 }
 
-[role="toolbar"] .toggle input:focus + label, 
-[role="toolbar"] .toggle button:focus {
+.toggle input:focus + label, 
+.toggle button:focus {
   outline: 3px solid magenta;
 }
 
-[role="toolbar"] .toggle input {
+.toggle input {
   height: 100%;
   margin: 0;
   opacity: 0;
@@ -53,8 +53,8 @@ body {
   width: 100%;
 }
 
-[role="toolbar"] .toggle label, 
-[role="toolbar"] .toggle button {
+.toggle label, 
+.toggle button {
   align-items: center;
   background-color: var(--axecon-color-6);
   border: none;
@@ -67,30 +67,26 @@ body {
   width: 42px;
 }
 
-[role="toolbar"] .toggle label svg, 
-[role="toolbar"] .toggle button svg {
+.toggle label svg, 
+.toggle button svg {
   fill: currentColor;
   height: 24px;
   width: 24px;
 }
 
-[role="toolbar"] .toggle input:not(:checked) + label .icon--off,
-[role="toolbar"] .toggle input:checked + label .icon--on {
+.toggle input:not(:checked) + label .icon--off,
+.toggle input:checked + label .icon--on {
   display: none;
 }
 
-[role="toolbar"] .toggle input:checked + label .icon--off,
-[role="toolbar"] .toggle input:not(:checked) + label .icon--on  {
+.toggle input:checked + label .icon--off,
+.toggle input:not(:checked) + label .icon--on  {
   display: block;
 }
 
-[role="toolbar"] :not(:has(:checked)) + #countdown {
-  display: none;
-}
-
-[role="toolbar"] #countdown {
+.abc {
   align-items: center;
-  display: inline-flex;
+  display: flex;
   gap: 0.5em;
 }
 
