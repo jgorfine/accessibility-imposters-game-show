@@ -3,13 +3,13 @@ import { computePosition, arrow, flip, offset } from 'https://cdn.jsdelivr.net/n
 
 window.Stimulus = Application.start()
 
-Stimulus.register("foo", class extends Controller {
+Stimulus.register("tooltip", class extends Controller {
   static targets = [ "button", "tooltip", "arrow" ]
 
   position() {
     computePosition(this.buttonTarget, this.tooltipTarget, {
       placement: 'top',
-      middleware: [offset(6), flip(), arrow({element: this.arrowTarget})],
+      middleware: [offset(2), flip(), arrow({element: this.arrowTarget})],
     }).then(({x, y, placement, middlewareData}) => {
       Object.assign(this.tooltipTarget.style, {
         left: `${x}px`,

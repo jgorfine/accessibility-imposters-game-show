@@ -11,37 +11,58 @@ layout: "base.njk"
     <section id="" aria-labelledby="" role="region">
       <h2 id="" class="sr-only"></h2>
       <div role="toolbar">
-        <button
-          data-game-target="control"
-          data-action="game#toggleSound keydown.right->game#next keydown.left->game#prev" 
-          tabindex="0"
-          role="switch" 
-          type="button"
-        >
-          <span>Count down music</span>
-        </button>
-        <button
-          data-game-target="control"
-          data-action="game#toggleTimer keydown.right->game#next keydown.left->game#prev" 
-          tabindex="-1"
-          type="button"
-        >
-          Start count down
-        </button>
-        <div 
-          data-game-target="timer" 
-          role="timer"
-        >
-          03:00
+        <div>
+          <input 
+            aria-label="Play with count down"
+            type="checkbox" 
+            role="switch" 
+            tabindex="0" 
+            data-game-target="control" 
+            data-action="game#toggleReveal keydown.right->game#next keydown.left->game#prev" 
+            checked 
+          />
         </div>
-        <button 
-          data-game-target="control" 
-          data-action="game#toggleReveal keydown.right->game#next keydown.left->game#prev" 
-          tabindex="-1"
-          type="button"
-        >
-          Reveal impostor
-        </button>
+        <div id="countdown">
+          <button
+            data-game-target="control"
+            data-action="game#toggleSound keydown.right->game#next keydown.left->game#prev" 
+            role="switch" 
+            tabindex="-1"
+            type="button"
+          >
+            <svg aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
+              <path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM565-275q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/>
+            </svg>
+            <span class="sr-only">Count down music</span>
+          </button>
+          <div 
+            data-game-target="timer" 
+            role="timer"
+          >
+            03:00
+          </div>
+          <button
+            data-game-target="control"
+            data-action="game#toggleTimer keydown.right->game#next keydown.left->game#prev" 
+            tabindex="-1"
+            type="button"
+          >
+            <svg aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
+              <path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM565-275q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/>
+            </svg>
+            <span class="sr-only">Start count down</span>
+          </button>
+        </div>
+        <div>
+          <input 
+            aria-label="Reveal impostor!"
+            type="checkbox" 
+            role="switch" 
+            tabindex="-1" 
+            data-game-target="control" 
+            data-action="game#toggleReveal keydown.right->game#next keydown.left->game#prev" 
+          />
+        </div>
       </div>
       <div data-game-target="liveregion" role="status" aria-role="polite"></div>
       <audio></audio>

@@ -17,7 +17,43 @@ main {
 
 [role="toolbar"] {
   display: flex;
-  gap: 1em;
+  gap: 0.5em;
+}
+
+[role="toolbar"] button:has(svg:only-of-type) {
+  align-items: center;
+  background-color: var(--axecon-color-2);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  height: 42px;
+  justify-content: center;
+  outline: 1px solid transparent;
+  width: 42px;
+}
+
+[role="toolbar"] button:has(svg:only-of-type):hover {
+  background-color: #000;
+}
+
+[role="toolbar"] button:has(svg:only-of-type):focus {
+  outline: 3px solid #0dbaf7
+}
+
+[role="toolbar"] button svg:only-of-type {
+  display: block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+}
+
+:not(:has(:checked)) + #countdown {
+  display: none;
+}
+
+#countdown {
+  display: inline-flex;
 }
 
 #stage {
@@ -27,7 +63,7 @@ main {
 .grid {
   display: grid;
   gap: 1em;
-  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
 }
 
 
