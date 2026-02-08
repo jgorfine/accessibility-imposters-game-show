@@ -54,12 +54,10 @@ Stimulus.register("timelimit", class extends Controller {
 })
 
 Stimulus.register("timer", class extends Controller {
-  static targets = [ "button", "on", "off", "countdown"]
+  static targets = [ "on", "off", "countdown", "format"]
   static values = { active: Boolean }
 
-  toggle() {
-    this.activeValue = !this.activeValue;
-
+  start() {
     const now = new Date();
     const nowPlus3Mins = new Date(now.setMinutes(now.getMinutes() + 3));
 
@@ -69,7 +67,7 @@ Stimulus.register("timer", class extends Controller {
     const hours = nowPlus3Mins.getHours();
     const minutes = nowPlus3Mins.getMinutes();
 
-    simplyCountdown(this.countdownTarget, {
+    const countdown = simplyCountdown(this.countdownTarget, {
       year,
       month,
       day,
@@ -83,6 +81,24 @@ Stimulus.register("timer", class extends Controller {
       onResume: () => {},
       onUpdate: (params) => {}
     });
+
+    window.sharedObject = countdown;
+    
+    // this.offTarget.firstChild().focus();
+
+    this.activeValue = !this.activeValue;
+  }
+
+  pause() {
+    console.log("pausing", window.sharedObject);
+    if (window.sharedObject) {
+      const state = window.sharedObject.getState();
+      if (state.isPaused) {
+        window.sharedObject.resumeCountdown();
+      } else {
+        window.sharedObject.stopCountdown();
+      }
+    }
   }
 
   activeValueChanged() {
