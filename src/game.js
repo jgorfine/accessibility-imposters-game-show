@@ -2,11 +2,9 @@ import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/di
 
 window.Stimulus = Application.start()
 
-Stimulus.register("game", class extends Controller {
-  static targets = [ "control", "liveregion" ]
+Stimulus.register("toolbar", class extends Controller {
+  static targets = [ "control" ]
   static values = { index: Number }
-
-  // Navigation 
 
   next() {
     const visibleControls = this.controlTargets;
@@ -22,9 +20,10 @@ Stimulus.register("game", class extends Controller {
     this.indexValue = newIndex;
   }
 
-  indexValueChanged() {
-    this.focusControl();
-    this.updateTabIndices();
+  toggle(event) {
+    const switchElement = event.target.closest("[role='switch']");
+    const isChecked = switchElement.getAttribute('aria-checked') === 'true';
+    switchElement.setAttribute('aria-checked', !isChecked);
   }
 
   focusControl() {
@@ -37,22 +36,11 @@ Stimulus.register("game", class extends Controller {
     })
   }
 
-  // Actions
-  toggleReveal() {
-    console.log("toggling impostor")
+  indexValueChanged() {
+    this.focusControl();
+    this.updateTabIndices();
   }
 })
-
-Stimulus.register("timelimit", class extends Controller {
-  static targets = [ "container", "thing2", "input"]
-  static values = { active: Boolean }
-
-  toggle() {
-    this.containerTarget.hidden = this.inputTarget.checked === false;
-    this.thing2Target.hidden = this.inputTarget.checked === false;
-  }
-})
-
 
 /**
  * Timer formatting credit
@@ -61,7 +49,7 @@ Stimulus.register("timelimit", class extends Controller {
  */
 
 Stimulus.register("timer", class extends Controller {
-  static targets = [ "display", "announcement" ]
+  static targets = [ "switch", "display", "announcement", "liveregion" ]
   static values = { active: Boolean }
 
   formatMMSS(time) {
@@ -102,7 +90,8 @@ Stimulus.register("timer", class extends Controller {
     };
 
     this.countdown.onCompleted = () => {
-      console.log('DONE');
+      this.switchTarget.setAttribute("aria-checked", "false");
+      this.liveregionTarget.textContent = "Time's up! Use 'Reveal impostor' button to see the answer.";
     };
   }
 
@@ -116,6 +105,12 @@ Stimulus.register("timer", class extends Controller {
 
   reset() {
     this.countdown.reset();
+  }
+
+  toggle() {
+    const isChecked = this.switchTarget.getAttribute('aria-checked') === 'true';
+    !isChecked ? this.start() : this.pause();
+    this.switchTarget.setAttribute('aria-checked', !isChecked);
   }
 })
 

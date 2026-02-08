@@ -2,7 +2,11 @@ body {
   background-color: var(--axecon-color-4);
 }
 
-.topper {
+/******************************************
+ *            HEADER STYLES               *
+ ******************************************/
+
+header {
   align-items: center;
   background-color: var(--axecon-color-2);
   display: flex;
@@ -23,61 +27,7 @@ h1,
   font-size: 2.5em;
 }
 
-[role="timer"] {
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-
-[role="timer"]:has(.simply-section), 
-[role="timer"] .simply-section {
-  display: inline-flex;
-}
-
-[role="timer"] .simply-section:not(:last-of-type)::after {
-  content: ":";
-}
-
-[role="timer"] .simply-days-section,
-[role="timer"] .simply-hours-section,
-[role="timer"] .simply-word {
-  display: none;
-}
-
-[role="timer"]:focus-visible {
-  outline: 3px solid magenta;
-}
-
-.topper:has(#countdown-toggle:checked) [role="timer"] {
-  display: block;
-}
-
-[role="toolbar"] {
-  align-items: center;
-  display: flex;
-  gap: 0.5em;
-}
-
-.toggle, 
-.toggle button {
-  position: relative;
-}
-
-.toggle input:focus + label, 
-.toggle button:focus {
-  outline: 3px solid magenta;
-}
-
-.toggle input {
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  padding: 0;
-  position: absolute;
-  width: 100%;
-}
-
-.toggle label, 
-.toggle button {
+header button {
   align-items: center;
   background-color: var(--axecon-color-6);
   border: none;
@@ -90,28 +40,57 @@ h1,
   width: 42px;
 }
 
-.toggle label svg, 
-.toggle button svg {
+header button:focus {
+  outline: 3px solid magenta;
+}
+ 
+header button svg {
   fill: currentColor;
-  height: 24px;
-  width: 24px;
+  height: 1.5em;
+  width: 1.5em;
 }
 
-.toggle input:not(:checked) + label .icon--off,
-.toggle input:checked + label .icon--on {
+header button[aria-checked="true"] .button__icon--on, 
+header button[aria-checked="false"] .button__icon--off {
   display: none;
 }
 
-.toggle input:checked + label .icon--off,
-.toggle input:not(:checked) + label .icon--on  {
-  display: block;
+/* ---------------------------------------- */
+/* Timer */
+/* ---------------------------------------- */
+
+#timer {
+  display: flex;
+  gap: 0.5em;
 }
 
-.abc {
+header:has(#time-limit-toggle[aria-checked='false']) #timer, 
+header:has(#time-limit-toggle[aria-checked='false']) #timer-music-toggle {
+  display: none;
+}
+
+[role="timer"] {
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+[role="timer"]:focus-visible {
+  outline: 3px solid magenta;
+}
+
+/* ---------------------------------------- */
+/* Toolbar */
+/* ---------------------------------------- */
+
+[role="toolbar"] {
   align-items: center;
   display: flex;
   gap: 0.5em;
 }
+
+/******************************************
+ *              MAIN STYLES               *
+ ******************************************/
 
 main {
   background: linear-gradient(180deg,var(--axecon-color-3) 0,var(--axecon-color-4) 100%);

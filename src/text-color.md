@@ -5,11 +5,14 @@ eleventyComputed:
   h1: "{{ name }}: Text Color"
 tags: game  
 layout: "game.njk"
+page_css: "css/text-color.css"
 ---
 
-<section id="sample-1" aria-labelledby="" role="region">
+<section id="sample-1" aria-labelledby="sample-1__heading" role="region">
   <figure>
-    <figcaption>Text Color #1</figcaption>
+    <figcaption>
+      <h2 id="sample-1__heading">Text Color #1</h2>
+    </figcaption>
     <div class="figtray" tabindex="0">
       <div>
         <p>What does the Axe-con name mean?</p>
@@ -20,9 +23,11 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="sample-2" aria-labelledby="" role="region">
+<section id="sample-2" aria-labelledby="sample-2__heading" role="region">
   <figure>
-    <figcaption>Text Color #2</figcaption>
+    <figcaption>
+      <h2 id="sample-2__heading">Text Color #2</h2>
+    </figcaption>
     <div class="figtray" tabindex="0">
       <div>
         <p>What does the Axe-con name mean?</p>
@@ -34,9 +39,11 @@ layout: "game.njk"
 </section>
 
 
-<section id="sample-3" aria-labelledby="" role="region">
+<section id="sample-3" aria-labelledby="sample-3__heading" role="region">
   <figure>
-    <figcaption>Text Color #3</figcaption>
+    <figcaption>
+      <h2 id="sample-3__heading">Text Color #3</h2>
+    </figcaption>
     <div class="figtray" tabindex="0">
       <div>
         <p>What does the Axe-con name mean?</p>
