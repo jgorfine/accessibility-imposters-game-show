@@ -45,6 +45,7 @@ Stimulus.register("game", class extends Controller {
 
 Stimulus.register("timelimit", class extends Controller {
   static targets = [ "container", "thing2", "input"]
+  static values = { active: Boolean }
 
   toggle() {
     this.containerTarget.hidden = this.inputTarget.checked === false;
@@ -53,11 +54,35 @@ Stimulus.register("timelimit", class extends Controller {
 })
 
 Stimulus.register("timer", class extends Controller {
-  static targets = [ "button", "on", "off" ]
+  static targets = [ "button", "on", "off", "countdown"]
   static values = { active: Boolean }
 
   toggle() {
     this.activeValue = !this.activeValue;
+
+    const now = new Date();
+    const nowPlus3Mins = new Date(now.setMinutes(now.getMinutes() + 3));
+
+    const year = nowPlus3Mins.getFullYear();
+    const month = nowPlus3Mins.getMonth() + 1;
+    const day = nowPlus3Mins.getDate();
+    const hours = nowPlus3Mins.getHours();
+    const minutes = nowPlus3Mins.getMinutes();
+
+    simplyCountdown(this.countdownTarget, {
+      year,
+      month,
+      day,
+      hours,
+      minutes,
+      inline: true,
+      inlineSeparator: ', ',
+      removeZeroUnits: true,
+      onEnd: () => {},
+      onStop: () => {},
+      onResume: () => {},
+      onUpdate: (params) => {}
+    });
   }
 
   activeValueChanged() {
