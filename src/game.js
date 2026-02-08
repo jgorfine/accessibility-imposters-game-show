@@ -39,6 +39,12 @@ Stimulus.register("game", class extends Controller {
 
   // Actions
 
+  toggleCountdownVisible() {
+    if (window.getComputedStyle(this.timerTarget).display === "block") {
+      this.timerTarget.focus();
+    }
+  }
+
   toggleCountdown() {
     console.log("toggling countdown running")
   }

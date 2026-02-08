@@ -3,7 +3,7 @@ body {
 }
 
 .topper {
-  align-items: flex-end;
+  align-items: center;
   background-color: var(--axecon-color-2);
   display: flex;
   flex-wrap: wrap;
@@ -14,8 +14,18 @@ body {
   top: 0;
 }
 
-main {
-  background: linear-gradient(180deg,var(--axecon-color-3) 0,var(--axecon-color-4) 100%);
+[role="timer"] {
+  display: none;
+  font-size: 3em;
+  font-variant-numeric: tabular-nums;
+}
+
+[role="timer"]:focus-visible {
+  outline: 3px solid magenta;
+}
+
+.topper:has(#countdown-toggle:checked) [role="timer"] {
+  display: block;
 }
 
 [role="toolbar"] {
@@ -82,6 +92,10 @@ main {
   align-items: center;
   display: inline-flex;
   gap: 0.5em;
+}
+
+main {
+  background: linear-gradient(180deg,var(--axecon-color-3) 0,var(--axecon-color-4) 100%);
 }
 
 #stage {
