@@ -17,6 +17,7 @@
       {{ css | cssmin | safe }}
     </style>
     {% if tags and 'game' in tags  %}
+    <script src="./countdown.js"></script>
     <script src="./game.js" type="module"></script>
     {% endif %}
     {% if libraries === 'floatingui' %}

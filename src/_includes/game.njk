@@ -6,8 +6,9 @@ layout: "base.njk"
   <div class="topper" data-controller="timelimit timer">
     <h1>{{ h1 }}</h1>
     <div class="abc" data-timelimit-target="container" data-timer-setup-value="false" data-timer-active-value="false">
-      <div data-timer-target="display" role="timer" tabindex="-1">
-        <span>03:00</span>
+      <div role="timer" tabindex="-1">
+        <span data-timer-target="display" aria-hidden="true">03:00</span>
+        <span data-timer-target="announcement" class="sr-only">3 minutes</span>
       </div>
       <button
         data-action="timer#start keydown.right->game#next keydown.left->game#prev" 
@@ -20,7 +21,7 @@ layout: "base.njk"
         <span>Start timer</span>
       </button>
       <button
-        data-action="timer#toggle keydown.right->game#next keydown.left->game#prev" 
+        data-action="timer#pause keydown.right->game#next keydown.left->game#prev" 
         type="button"
       >
         <svg class="icon--off" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
@@ -53,29 +54,6 @@ layout: "base.njk"
             </svg>
             <!-- Label -->
             <span class="sr-only">Play with music</span>
-          </label>
-        </div>
-        <div class="toggle" data-timelimit-target="thing2">
-          <input 
-            id="timer-format-toggle"
-            type="checkbox" 
-            role="switch" 
-            tabindex="-1" 
-            data-game-target="control" 
-            data-timer-target="format"
-            data-action="keydown.right->game#next keydown.left->game#prev" 
-          />
-          <label for="timer-format-toggle">
-            <!-- On icon -->
-            <svg class="icon--on" aria-hidden="false" focusable="false" viewBox="0 -960 960 960">
-              <path d="M680-360q-17 0-28.5-11.5T640-400v-160q0-17 11.5-28.5T680-600h120q17 0 28.5 11.5T840-560v40h-60v-20h-80v120h80v-20h60v40q0 17-11.5 28.5T800-360H680Zm-300 0v-240h160q17 0 28.5 11.5T580-560v40q0 17-11.5 28.5T540-480q17 0 28.5 11.5T580-440v40q0 17-11.5 28.5T540-360H380Zm60-150h80v-30h-80v30Zm0 90h80v-30h-80v30Zm-320 60v-200q0-17 11.5-28.5T160-600h120q17 0 28.5 11.5T320-560v200h-60v-60h-80v60h-60Zm60-120h80v-60h-80v60Z"/>
-            </svg>
-            <!-- Off icon -->
-            <svg class="icon--off" aria-hidden="false" focusable="false" viewBox="0 -960 960 960">
-              <path d="M220-360v-180h-60v-60h120v240h-60Zm140 0v-100q0-17 11.5-28.5T400-500h80v-40H360v-60h140q17 0 28.5 11.5T540-560v60q0 17-11.5 28.5T500-460h-80v40h120v60H360Zm240 0v-60h120v-40h-80v-40h80v-40H600v-60h140q17 0 28.5 11.5T780-560v160q0 17-11.5 28.5T740-360H600Z"/>
-            </svg>
-            <!-- Label -->
-            <span class="sr-only">Show timer in _____ format</span>
           </label>
         </div>
         <div class="toggle">

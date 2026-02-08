@@ -53,65 +53,69 @@ Stimulus.register("timelimit", class extends Controller {
   }
 })
 
+
+/**
+ * Timer formatting credit
+ * @author JavaScript Development Space
+ * @see {@link https://jsdev.space/howto/convert-seconds-js/|Convert Seconds to Time Format in JavaScript}
+ */
+
 Stimulus.register("timer", class extends Controller {
-  static targets = [ "display", "format" ]
+  static targets = [ "display", "announcement" ]
   static values = { active: Boolean }
 
-  connect () {
-    const now = new Date();
-    const future = new Date(now.setMinutes(now.getMinutes() + 3));
-    window.timeFromNow = future.getTime();
+  formatMMSS(time) {
+    if (isNaN(time) || time < 0) return "00:00";
+
+    let secondTime = Math.floor(time);
+    let minuteTime = Math.floor(secondTime / 60);
+
+    secondTime %= 60;
+    minuteTime %= 60;
+
+    return (
+      `${minuteTime.toString().padStart(2, "0")}:` +
+      `${secondTime.toString().padStart(2, "0")}`
+    );
   }
 
-  setUpTimer() {
-    // Get today's date and time
-    const now = new Date().getTime();
+  formatHumanReadable(time) {
+    if (isNaN(time) || time < 0) return "00 minutes, 00 seconds";
 
-    // Find the distance between now and the count down date
-    const distance = window.timeFromNow - now;
+    let secondTime = Math.floor(time);
+    let minuteTime = Math.floor(secondTime / 60);
 
-    // Time calculations for days, hours, minutes and seconds
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    secondTime %= 60;
+    minuteTime %= 60;
 
-    const current = minutes + "m " + seconds + "s ";
-    console.log({ current });
+    return (
+      `${minuteTime.toString()} minutes, ${secondTime.toString().padStart(2, "0")} seconds`
+    );
+  }
 
-    const formattedMinutes = minutes.toString().padStart(2, '0');
-    const formattedSeconds = seconds.toString().padStart(2, '0');
+  connect() {
+    this.countdown = new Countdown().setDuration(180);
 
-    const currentFormatted = `${formattedMinutes}:${formattedSeconds}`;
-    console.log({ currentFormatted });
+    this.countdown.onTick = (time) => {
+      this.displayTarget.textContent = this.formatMMSS(time);
+      this.announcementTarget.textContent = this.formatHumanReadable(time);
+    };
 
-    // Display the result in the element with id="demo"
-    // this.displayTarget.innerHTML = minutes + "m " + seconds + "s ";
-
-    // If the count down is finished, write some text
-    // if (distance < 0) {
-    //   clearInterval(x);
-    //   this.displayTarget.innerHTML = "Finished!";
-    // }
+    this.countdown.onCompleted = () => {
+      console.log('DONE');
+    };
   }
 
   start() {
-    window.foo = setInterval(this.setUpTimer, 1000);
+    this.countdown.start();
   }
 
   pause() {
-    clearInterval(window.foo);
-    window.foo = null; // helps track if the interval is currently running
+    this.countdown.pause();
   }
 
-  toggle() {
-    if (window.foo) {
-      pauseInterval(); // If running, pause it
-    } else {
-      startInterval(); // If paused, start it
-    }
-  }
-
-  disconnect() {
-    delete window.foo;
+  reset() {
+    this.countdown.reset();
   }
 })
 
