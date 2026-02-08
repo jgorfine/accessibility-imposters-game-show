@@ -9,12 +9,16 @@ Stimulus.register("game", class extends Controller {
   // Navigation 
 
   next() {
-    const newIndex = (this.indexValue + 1) % this.controlTargets.length;
+    const visibleControls = this.controlTargets;
+    console.log("next, visible controls", visibleControls);
+    const newIndex = (this.indexValue + 1) % visibleControls.length;
     this.indexValue = newIndex;
   }
 
   prev() {
-    const newIndex = ((this.indexValue - 1) + this.controlTargets.length) % this.controlTargets.length;
+    const visibleControls = this.controlTargets;
+    console.log("prev, visible controls", visibleControls);
+    const newIndex = ((this.indexValue - 1) + visibleControls.length) % visibleControls.length;
     this.indexValue = newIndex;
   }
 
@@ -35,15 +39,26 @@ Stimulus.register("game", class extends Controller {
 
   // Actions
 
-  toggleSound() {
-    alert("toggling sound")
-  }
-
-  toggleTimer() {
-
+  toggleCountdown() {
+    console.log("toggling countdown running")
   }
 
   toggleReveal() {
-
+    console.log("toggling impostor")
   }
 })
+
+Stimulus.register("thing", class extends Controller {
+  static targets = [ "button", "on", "off" ]
+  static values = { active: Boolean }
+
+  toggle() {
+    this.activeValue = !this.activeValue;
+  }
+
+  activeValueChanged() {
+    this.onTarget.hidden = this.activeValue === true;
+    this.offTarget.hidden = this.activeValue === false;
+  }
+})
+

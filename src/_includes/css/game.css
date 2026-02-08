@@ -9,6 +9,9 @@ body {
   flex-wrap: wrap;
   gap: 1em;
   justify-content: space-between;
+  padding: 1em;
+  position: sticky;
+  top: 0;
 }
 
 main {
@@ -16,16 +19,37 @@ main {
 }
 
 [role="toolbar"] {
+  align-items: center;
   display: flex;
   gap: 0.5em;
 }
 
-[role="toolbar"] button:has(svg:only-of-type) {
+[role="toolbar"] .toggle, 
+[role="toolbar"] .toggle button {
+  position: relative;
+}
+
+[role="toolbar"] .toggle input:focus + label, 
+[role="toolbar"] .toggle button:focus {
+  outline: 3px solid magenta;
+}
+
+[role="toolbar"] .toggle input {
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+[role="toolbar"] .toggle label, 
+[role="toolbar"] .toggle button {
   align-items: center;
-  background-color: var(--axecon-color-2);
+  background-color: var(--axecon-color-6);
   border: none;
   border-radius: 50%;
-  color: #fff;
+  color: #000;
   display: inline-flex;
   height: 42px;
   justify-content: center;
@@ -33,27 +57,31 @@ main {
   width: 42px;
 }
 
-[role="toolbar"] button:has(svg:only-of-type):hover {
-  background-color: #000;
-}
-
-[role="toolbar"] button:has(svg:only-of-type):focus {
-  outline: 3px solid #0dbaf7
-}
-
-[role="toolbar"] button svg:only-of-type {
-  display: block;
+[role="toolbar"] .toggle label svg, 
+[role="toolbar"] .toggle button svg {
   fill: currentColor;
   height: 24px;
   width: 24px;
 }
 
-:not(:has(:checked)) + #countdown {
+[role="toolbar"] .toggle input:not(:checked) + label .icon--off,
+[role="toolbar"] .toggle input:checked + label .icon--on {
   display: none;
 }
 
-#countdown {
+[role="toolbar"] .toggle input:checked + label .icon--off,
+[role="toolbar"] .toggle input:not(:checked) + label .icon--on  {
+  display: block;
+}
+
+[role="toolbar"] :not(:has(:checked)) + #countdown {
+  display: none;
+}
+
+[role="toolbar"] #countdown {
+  align-items: center;
   display: inline-flex;
+  gap: 0.5em;
 }
 
 #stage {
@@ -173,7 +201,7 @@ figure button:has(svg:only-of-type):hover {
 }
 
 figure button:has(svg:only-of-type):focus {
-  outline: 3px solid #0dbaf7
+  outline: 3px solid #0dbaf7;
 }
 
 figure button svg:only-of-type {

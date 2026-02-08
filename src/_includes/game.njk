@@ -11,57 +11,105 @@ layout: "base.njk"
     <section id="" aria-labelledby="" role="region">
       <h2 id="" class="sr-only"></h2>
       <div role="toolbar">
-        <div>
+        <div class="toggle">
           <input 
-            aria-label="Play with count down"
+            id="countdown-toggle"
             type="checkbox" 
             role="switch" 
             tabindex="0" 
             data-game-target="control" 
-            data-action="game#toggleReveal keydown.right->game#next keydown.left->game#prev" 
+            data-action="keydown.right->game#next keydown.left->game#prev" 
             checked 
           />
+          <label for="countdown-toggle">
+            <!-- On icon -->
+            <svg class="icon--on" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
+              <path d="M360-840v-80h240v80H360Zm80 440h80v-240h-80v240Zm-99.5 291.5Q275-137 226-186t-77.5-114.5Q120-366 120-440t28.5-139.5Q177-645 226-694t114.5-77.5Q406-800 480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80q-74 0-139.5-28.5ZM678-242q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82ZM480-440Z"/>
+            </svg>
+            <!-- Off icon -->
+            <svg class="icon--off" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
+              <path d="m798-274-60-60q11-27 16.5-53.5T760-440q0-116-82-198t-198-82q-24 0-51 5t-56 16l-60-60q38-20 80.5-30.5T480-800q60 0 117.5 20T706-722l56-56 56 56-56 56q38 51 58 108.5T840-440q0 42-10.5 83.5T798-274ZM520-552v-88h-80v8l80 80ZM792-56l-96-96q-48 35-103.5 53.5T480-80q-74 0-139.5-28.5T226-186q-49-49-77.5-114.5T120-440q0-60 18.5-115.5T192-656L56-792l56-56 736 736-56 56ZM480-160q42 0 82-13t75-37L248-599q-24 35-36 75t-12 84q0 116 82 198t198 82ZM360-840v-80h240v80H360Zm83 435Zm113-112Z"/>
+            </svg>
+            <!-- Label -->
+            <span class="sr-only">Play with time limit</span>
+          </label>
         </div>
         <div id="countdown">
-          <button
-            data-game-target="control"
-            data-action="game#toggleSound keydown.right->game#next keydown.left->game#prev" 
-            role="switch" 
-            tabindex="-1"
-            type="button"
-          >
-            <svg aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
-              <path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM565-275q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/>
-            </svg>
-            <span class="sr-only">Count down music</span>
-          </button>
           <div 
             data-game-target="timer" 
             role="timer"
           >
             03:00
           </div>
-          <button
-            data-game-target="control"
-            data-action="game#toggleTimer keydown.right->game#next keydown.left->game#prev" 
-            tabindex="-1"
-            type="button"
-          >
-            <svg aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
-              <path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM565-275q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/>
-            </svg>
-            <span class="sr-only">Start count down</span>
-          </button>
+          <div class="toggle">
+            <input 
+              id="sound-toggle"
+              type="checkbox" 
+              role="switch" 
+              tabindex="-1" 
+              data-game-target="control" 
+              data-action="keydown.right->game#next keydown.left->game#prev" 
+              checked 
+            />
+            <label for="sound-toggle">
+              <!-- On icon -->
+              <svg class="icon--on" aria-hidden="false" focusable="false" viewBox="0 -960 960 960">
+                <path d="M560-131v-82q90-26 145-100t55-168q0-94-55-168T560-749v-82q124 28 202 125.5T840-481q0 127-78 224.5T560-131ZM120-360v-240h160l200-200v640L280-360H120Zm440 40v-322q47 22 73.5 66t26.5 96q0 51-26.5 94.5T560-320ZM400-606l-86 86H200v80h114l86 86v-252ZM300-480Z"/>
+              </svg>
+              <!-- Off icon -->
+              <svg class="icon--off" aria-hidden="false" focusable="false" viewBox="0 -960 960 960">
+                <path d="M792-56 671-177q-25 16-53 27.5T560-131v-82q14-5 27.5-10t25.5-12L480-368v208L280-360H120v-240h128L56-792l56-56 736 736-56 56Zm-8-232-58-58q17-31 25.5-65t8.5-70q0-94-55-168T560-749v-82q124 28 202 125.5T840-481q0 53-14.5 102T784-288ZM650-422l-90-90v-130q47 22 73.5 66t26.5 96q0 15-2.5 29.5T650-422ZM480-592 376-696l104-104v208Zm-80 238v-94l-72-72H200v80h114l86 86Zm-36-130Z"/>
+              </svg>
+              <!-- Label -->
+              <span class="sr-only">Play with music</span>
+            </label>
+          </div>
+          <div class="toggle" data-controller="thing" data-thing-active-value="false">
+            <button
+              data-game-target="control"
+              data-thing-target="button"
+              data-action="thing#toggle game#toggleCountdown keydown.right->game#next keydown.left->game#prev" 
+              tabindex="-1"
+              type="button"
+            >
+              <!-- On icon -->
+              <div data-thing-target="on">
+                <svg class="icon--on" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
+                  <path d="M360-840v-80h240v80H360Zm-19.5 731.5Q275-137 226-186t-77.5-114.5Q120-366 120-440t28.5-139.5Q177-645 226-694t114.5-77.5Q406-800 480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80q-74 0-139.5-28.5ZM678-242q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82ZM480-440Zm-80 160 240-160-240-160v320Z"/>
+                </svg>
+                <span class="sr-only">Start timer</span>
+              </div>
+              <!-- Off icon -->
+              <div data-thing-target="off" hidden>
+                <svg class="icon--off" aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
+                  <path d="M360-840v-80h240v80H360Zm-19.5 731.5Q275-137 226-186t-77.5-114.5Q120-366 120-440t28.5-139.5Q177-645 226-694t114.5-77.5Q406-800 480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80q-74 0-139.5-28.5ZM678-242q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82ZM480-440ZM360-280h80v-320h-80v320Zm160 0h80v-320h-80v320Z"/>
+                </svg>
+                <span class="sr-only">Pause timer</span>
+              </div>
+            </button>
+          </div>
         </div>
-        <div>
+        <div class="toggle">
           <input 
-            aria-label="Reveal impostor!"
+            id="impostor-toggle"
             type="checkbox" 
             role="switch" 
             tabindex="-1" 
             data-game-target="control" 
             data-action="game#toggleReveal keydown.right->game#next keydown.left->game#prev" 
           />
+          <label for="impostor-toggle">
+            <!-- On icon -->
+            <svg class="icon--on" aria-hidden="false" focusable="false" viewBox="0 -960 960 960">
+              <path d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"/>
+            </svg>
+            <!-- Off icon -->
+            <svg class="icon--off" aria-hidden="false" focusable="false" viewBox="0 -960 960 960">
+              <path d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z"/>
+            </svg>
+            <!-- Label -->
+            <span class="sr-only">Reveal impostor</span>
+          </label>
         </div>
       </div>
       <div data-game-target="liveregion" role="status" aria-role="polite"></div>
