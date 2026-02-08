@@ -6,7 +6,9 @@ layout: "base.njk"
   <div class="topper" data-controller="timelimit timer">
     <h1>{{ h1 }}</h1>
     <div class="abc" data-timelimit-target="container" data-timer-active-value="false">
-      <div data-timer-target="countdown" role="timer" tabindex="-1"></div>
+      <div data-timer-target="countdown" role="timer" tabindex="-1">
+        <span data-timer-target="initial">03:00</span>
+      </div>
       <div class="toggle" data-timer-target="on">
         <button
           data-action="timer#start keydown.right->game#next keydown.left->game#prev" 

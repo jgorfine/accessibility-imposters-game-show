@@ -54,7 +54,7 @@ Stimulus.register("timelimit", class extends Controller {
 })
 
 Stimulus.register("timer", class extends Controller {
-  static targets = [ "on", "off", "countdown", "format"]
+  static targets = [ "on", "off", "countdown", "format", "initial" ]
   static values = { active: Boolean }
 
   start() {
@@ -74,28 +74,29 @@ Stimulus.register("timer", class extends Controller {
       month,
       day,
       hours,
-      minutes,
-      removeZeroUnits: true,
-      onEnd: () => {},
-      onStop: () => {},
-      onResume: () => {},
-      onUpdate: (params) => {}, 
+      minutes
     }
+
+    const optionsA = {
+      inline: true,
+      inlineSeparator: ', ',
+      removeZeroUnits: true,
+    }
+
+    window.sharedObject2 = optionsA;
+
+    const optionsB = {
+      plural: false,
+      zeroPad: true,
+    }
+
+    window.sharedObject3 = optionsB;
 
     console.log("format", this.formatTarget.checked);
 
-    if (this.formatTarget.checked) {
-      additionalOptions = {
-        inline: true,
-        inlineSeparator: ', ',
-      }
-    } else {
-      additionalOptions = {
-        wordClass: 'simply-word',
-        plural: false,
-        zeroPad: true,
-      }
-    }
+    additionalOptions = this.formatTarget.checked ? optionsA : optionsB;
+
+    this.initialTarget.remove();
 
     const countdown = simplyCountdown(this.countdownTarget, {...options, ...additionalOptions});
 
@@ -115,6 +116,14 @@ Stimulus.register("timer", class extends Controller {
       } else {
         window.sharedObject.stopCountdown();
       }
+    }
+  }
+
+  formatValueChanged() {
+    console.log('format value changed', this.formatTarget.checked);
+    if (window.sharedObject && window.sharedObject2 && window.sharedObject3) {
+      const newOptions = this.formatTarget.checked ? window.sharedObject2 : window.sharedObject3;
+      window.sharedObject.updateCountdown(newOptions);
     }
   }
 

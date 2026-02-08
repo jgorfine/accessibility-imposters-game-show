@@ -28,6 +28,17 @@ h1,
   line-height: 1;
 }
 
+[role="timer"]:has(.simply-section), 
+[role="timer"] .simply-section {
+  display: inline-flex;
+}
+
+[role="timer"] .simply-section:not(:last-of-type)::after {
+  content: ":";
+}
+
+[role="timer"] .simply-days-section,
+[role="timer"] .simply-hours-section,
 [role="timer"] .simply-word {
   display: none;
 }
