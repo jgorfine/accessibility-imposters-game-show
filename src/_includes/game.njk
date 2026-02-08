@@ -4,10 +4,7 @@ layout: "base.njk"
 
 <main data-controller="game" data-game-index-value="0">
   <div class="topper" data-controller="timelimit">
-    <div>
-      <a href="">{{ site.name }}</a>
-      <h1>{{ h1 }}</h1>
-    </div>
+    <h1>{{ h1 }}</h1>
     <div class="abc" data-timelimit-target="container">
       <div data-game-target="timer" role="timer" tabindex="-1">03:00</div>
       <div class="toggle" data-controller="timer" data-timer-active-value="false">
