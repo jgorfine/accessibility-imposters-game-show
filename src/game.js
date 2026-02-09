@@ -1,6 +1,6 @@
 import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js";
 
-window.Stimulus = Application.start()
+window.Stimulus = Application.start();
 
 Stimulus.register("toolbar", class extends Controller {
   static targets = [ "control" ]
@@ -115,3 +115,15 @@ Stimulus.register("timer", class extends Controller {
   }
 })
 
+Stimulus.register("filters", class extends Controller {
+  static targets = [ "toggle", "filters" ]
+  static values = { expanded: Boolean }
+
+  toggle() {
+    this.expandedValue = !this.expandedValue;
+  }
+
+  expandedValueChanged() {
+    this.filtersTarget.hidden = this.expandedValue;
+  }
+})

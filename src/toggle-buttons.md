@@ -13,12 +13,19 @@ layout: "game.njk"
       <h2 id="sample-1__heading">Toggle Button #1</h2>
     </figcaption>
     <div class="figtray background--5" tabindex="0">
-      <div class="game-filters">
+      <div class="game-filters" data-controller="filters" data-filters-expanded-value="false">
         <div class="game-filters__header">
           <div class="game-filters__date">Wednesday February 25</div>
-          <button class="game-filters__button" type="button">Filter Tracks</button>
+          <button 
+            data-filters-target="toggle"
+            data-action="filters#toggle"
+            class="game-filters__button"
+            type="button"
+          >
+            Filter Tracks
+          </button>
         </div>
-        <div class="game-filters__body" role="group" hidden>
+        <div data-filters-target="filters" class="game-filters__body" role="group" hidden>
           <div class="game-filters__field">
             <label for="sample-1__tracks">Tracks</label>
             <div>
