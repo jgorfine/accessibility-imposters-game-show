@@ -141,7 +141,29 @@ main {
 .grid {
   display: grid;
   gap: var(--stage-spacing);
-  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(25em, 1fr)); */
+}
+
+@media only screen and (min-width: 1000px) {
+  .grid:has(> *:nth-last-child(n+3)) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid:has(> *:nth-last-child(n+4)) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid:has(> *:nth-last-child(n+6)) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 2;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .grid:has(> *:nth-last-child(n+6)) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+  }
 }
 
 
@@ -332,4 +354,17 @@ footer[role="contentinfo"] a:focus {
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
+}
+
+footer[role="contentinfo"] a:has(img) {
+  display: inline-block;
+  font-size: 1em;
+  height: auto;
+  width: min(100%, 9em);
+}
+
+footer[role="contentinfo"] a img {
+  display: block;
+  height: auto; 
+  width: 100%;
 }

@@ -11,6 +11,7 @@ Stimulus.register("toolbar", class extends Controller {
     console.log("next, visible controls", visibleControls);
     const newIndex = (this.indexValue + 1) % visibleControls.length;
     this.indexValue = newIndex;
+    this.focusControl();
   }
 
   prev() {
@@ -18,6 +19,7 @@ Stimulus.register("toolbar", class extends Controller {
     console.log("prev, visible controls", visibleControls);
     const newIndex = ((this.indexValue - 1) + visibleControls.length) % visibleControls.length;
     this.indexValue = newIndex;
+    this.focusControl();
   }
 
   toggle(event) {
@@ -37,7 +39,6 @@ Stimulus.register("toolbar", class extends Controller {
   }
 
   indexValueChanged() {
-    this.focusControl();
     this.updateTabIndices();
   }
 })
