@@ -8,10 +8,12 @@ libraries: 'floatingui'
 layout: "game.njk"
 ---
 
-<section id="sample-1" aria-labelledby="" role="region">
+<section id="sample-1" aria-labelledby="sample-1__heading" role="region">
   <figure>
-    <figcaption>Icon Button #1</figcaption>
-    <div class="figtray" tabindex="0">
+    <figcaption>
+      <h2 id="sample-1__heading">Icon Button #1</h2>
+    </figcaption>
+    <div class="figtray background--8" tabindex="0">
       <!-- Save -->
       <button aria-label="Save" type="button">
         <svg aria-hidden="true" focusable="false" viewBox="0 -960 960 960">
@@ -22,10 +24,12 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="sample-2" aria-labelledby="" role="region">
+<section id="sample-2" aria-labelledby="sample-2__heading" role="region">
   <figure>
-    <figcaption>Icon Button #2</figcaption>
-    <div class="figtray" tabindex="0" data-controller="tooltip">
+    <figcaption>
+      <h2 id="sample-2__heading">Icon Button #2</h2>
+    </figcaption>
+    <div class="figtray background--6" tabindex="0" data-controller="tooltip">
       <!-- Redo --> 
       <button 
         aria-labelledby="redo-tooltip" 
@@ -46,10 +50,12 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="sample-3" aria-labelledby="" role="region">
+<section id="sample-3" aria-labelledby="sample-3__heading" role="region">
   <figure>
-    <figcaption>Icon Button #3</figcaption>
-    <div class="figtray" tabindex="0" data-controller="tooltip">
+    <figcaption>
+      <h2 id="sample-3__heading">Icon Button #3</h2>
+    </figcaption>
+    <div class="figtray background--3" tabindex="0" data-controller="tooltip">
       <!-- Save -->
       <button 
         type="button" 
@@ -68,10 +74,12 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="sample-4" aria-labelledby="" role="region">
+<section id="sample-4" aria-labelledby="sample-4__heading" role="region">
   <figure>
-    <figcaption>Icon Button #4</figcaption>
-    <div class="figtray" tabindex="0">
+    <figcaption>
+      <h2 id="sample-4__heading">Icon Button #4</h2>
+    </figcaption>
+    <div class="figtray background--5" tabindex="0">
       <!-- Undo -->
       <button type="button">
         <svg viewBox="0 -960 960 960">
@@ -83,10 +91,12 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="sample-5" aria-labelledby="" role="region">
+<section id="sample-5" aria-labelledby="sample-5__heading" role="region">
   <figure>
-    <figcaption>Icon Button #5</figcaption>
-    <div class="figtray" tabindex="0" data-controller="tooltip">
+    <figcaption>
+      <h2 id="sample-5__heading">Icon Button #5</h2>
+    </figcaption>
+    <div class="figtray background--7" tabindex="0" data-controller="tooltip">
       <!-- Undo -->
       <button 
         type="button"
@@ -105,10 +115,12 @@ layout: "game.njk"
   </figure>
 </section>
 
-<section id="sample-6" aria-labelledby="" role="region">
+<section id="sample-6" aria-labelledby="sample-6__heading" role="region">
   <figure>
-    <figcaption>Icon Button #6</figcaption>
-    <div class="figtray" tabindex="0">
+    <figcaption>
+      <h2 id="sample-6__heading">Icon Button #6</h2>
+    </figcaption>
+    <div class="figtray background--4" tabindex="0">
       <!-- Redo --> 
       <button aria-label="Redo" type="button">
         <svg viewBox="0 -960 960 960">

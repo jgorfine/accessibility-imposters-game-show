@@ -116,3 +116,13 @@ layout: "base.njk"
   </section>
   <div data-timer-target="liveregion" role="status" aria-role="polite"></div>
 </main>
+<footer role="contentinfo">
+  <a href="/">{{ site.name }}</a>
+  <ol>
+    {%- for round in collections.game -%}
+    <li>
+      <a href="{{round.url}}" {% if page.url == round.url %} aria-current="page"{% endif %}>{{ round.data.h1 }}</a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</footer>
