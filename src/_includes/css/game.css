@@ -142,26 +142,27 @@ main {
 .grid {
   display: grid;
   gap: var(--stage-spacing);
-  /* grid-template-columns: repeat(auto-fit, minmax(25em, 1fr)); */
+}
+
+@media only screen and (min-width: 825px) {
+  .grid:has(> *:nth-child(6):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
 }
 
 @media only screen and (min-width: 1000px) {
-  .grid:has(> *:nth-last-child(n+3)) {
+  .grid:has(> *:nth-child(3):last-child) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .grid:has(> *:nth-last-child(n+4)) {
+  .grid:has(> *:nth-child(4):last-child) {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .grid:has(> *:nth-last-child(n+6)) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 2;
   }
 }
 
-@media only screen and (min-width: 1800px) {
-  .grid:has(> *:nth-last-child(n+6)) {
+@media only screen and (min-width: 1400px) {
+  .grid:has(> *:nth-child(6):last-child) {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
   }
@@ -172,8 +173,9 @@ figure {
   display: flex;
   flex-direction: column;
   border: 3px solid #fff;
+  height: 100%;
   margin: 0;
-  min-height: 33vh;
+  /* min-height: 33vh; */
 }
 
 figcaption {
@@ -190,6 +192,7 @@ figcaption h2 {
 }
 
 .figtray {
+  /* background: linear-gradient(180deg,#801bd0 5.34%,#003349 96.27%); */
   container: tray / inline-size;
   display: flex;
   flex: 1 1 100%;
@@ -206,18 +209,22 @@ figcaption h2 {
 /* ---------------------------------------- */
 
 .game-text-block {
-  padding: 3em;
+  padding: 2em;
 }
 
 .game-text-block__title {
   font-size: 1.75em;
   font-weight: 300;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .game-text-block__blurb {
   font-size: 1.125em;
   line-height: 1.5;
   margin-top: 1em;
+  text-wrap: balance;
 }
 
 .game-text-block__blurb + .game-text-block__blurb {
@@ -349,7 +356,6 @@ figure [role="tooltip"] .arrow {
   background-color: #fff;
   font-size: 1rem;
   padding: 2em;
-  width: 75cqi;
 }
 
 .game-filters__header {
@@ -364,6 +370,9 @@ figure [role="tooltip"] .arrow {
   color: var(--filters-color-2);
   font-size: 2em;
   font-weight: 300;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .game-filters button {
