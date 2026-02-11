@@ -12,6 +12,7 @@ header {
   padding: 1em;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 @media only screen and (min-width: 300px) {
@@ -348,7 +349,7 @@ figure [role="tooltip"] .arrow {
   background-color: #fff;
   font-size: 1rem;
   padding: 2em;
-  width: 50cqi;
+  width: 75cqi;
 }
 
 .game-filters__header {
@@ -379,17 +380,14 @@ figure [role="tooltip"] .arrow {
   white-space: nowrap;
 }
 
-.game-filters button[aria-expanded="false"]:hover,
-.game-filters:has(.game-filters__body[hidden]) button:hover {
+.game-filters button:hover {
   background-color: var(--filters-color-2);
   border-color: var(--filters-color-2);
   color: #fff;
 }
 
-.game-filters button[aria-expanded="false"]:hover::before,
-.game-filters button[aria-expanded="false"]:hover::after,
-.game-filters:has(.game-filters__body[hidden]) button:hover::before, 
-.game-filters:has(.game-filters__body[hidden]) button:hover::after {
+.game-filters button:hover::before,
+.game-filters button:hover::after {
   position: absolute;
   content: "";
   display: block;
@@ -400,29 +398,35 @@ figure [role="tooltip"] .arrow {
   border-bottom: 0.125em solid #fff;
 }
 
-.game-filters button[aria-expanded="false"]:hover::before,
-.game-filters:has(.game-filters__body[hidden]) button:hover::before {
+.game-filters button:hover::before {
   border-left: 0.125em solid #fff;
   left: 0.25em;
 }
 
-.game-filters button[aria-expanded="false"]:hover::after,
-.game-filters:has(.game-filters__body[hidden]) button:hover::after {
+.game-filters button:hover::after {
   border-right: 0.125em solid #fff;
   right: 0.25em;
 }
 
-.game-filters button[aria-expanded="false"]:focus,
-.game-filters:has(.game-filters__body[hidden]) button:focus {
-  background-color: #fff;
-  color: var(--axecon-color-3);
-  outline: 0.125em solid var(--axecon-color-3);
+.game-filters button[aria-expanded="true"]:hover,
+.game-filters:not(:has(.game-filters__body[hidden])) button:hover {
+  background-color: var(--axecon-color-3);
+  border-color: var(--axecon-color-3);
 }
 
 .game-filters button[aria-expanded="true"], 
 .game-filters:not(:has(.game-filters__body[hidden])) button {
   background-color: var(--axecon-color-3);
+  border-color: var(--axecon-color-3);
   color: #fff;
+}
+
+.game-filters button:is(:focus, :active), 
+.game-filters button[aria-expanded="true"]:is(:focus, :active), 
+.game-filters:not(:has(.game-filters__body[hidden])) button:is(:focus, :active) {
+  background-color: #fff;
+  color: var(--axecon-color-3);
+  outline: 0.125em solid var(--axecon-color-3);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -456,13 +460,19 @@ figure [role="tooltip"] .arrow {
   color: var(--filters-color-1);
   font-family: inherit;
   font-size: 1.125em;
+  margin-top: 0.5em;
   padding: 0.5em 1em;
   width: 100%;
 }
 
-.game-filters select:hover {
+.game-filters select:hover, 
+.game-filters select:focus {
   background-color: var(--axecon-color-2);
   color: #fff;
+}
+
+.game-filters select:focus {
+  outline: none;
 }
 
 /******************************************

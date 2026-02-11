@@ -116,14 +116,21 @@ Stimulus.register("timer", class extends Controller {
 })
 
 Stimulus.register("filters", class extends Controller {
-  static targets = [ "toggle", "filters" ]
+  static targets = [ "toggle", "filters", "tracks" ]
   static values = { expanded: Boolean }
 
   toggle() {
     this.expandedValue = !this.expandedValue;
+    this.filtersTarget.hidden = !this.expandedValue;
+    if (this.expandedValue === true && this.toggleTarget.hasAttribute('aria-expanded')) {
+      console.log(this.tracksTarget);
+      this.tracksTarget.focus();
+    }
   }
 
   expandedValueChanged() {
-    this.filtersTarget.hidden = this.expandedValue;
+    if (this.toggleTarget.hasAttribute('aria-expanded')) {
+      this.toggleTarget.setAttribute('aria-expanded', this.expandedValue);
+    }
   }
 })
