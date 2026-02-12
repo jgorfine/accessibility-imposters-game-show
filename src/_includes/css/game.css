@@ -128,13 +128,14 @@ section:has([role="toolbar"]) {
 
 main {
   /* background: linear-gradient(180deg,var(--axecon-color-3) 0,var(--axecon-color-4) 100%); */
-  background-color: var(--axecon-color-1);
+  /* backgrosund-color: var(--axecon-color-1); */
 }
 
 #stage {
-  --stage-spacing: 2em;
+  --stage-spacing: clamp(1em, 2cqi, 2em);
 
   /* background: linear-gradient(180deg,var(--axecon-color-3) 5.34%,var(--axecon-color-2) 96.27%); */
+  background-color: #fff;
   container: stage / inline-size;
   padding: var(--stage-spacing);
 }
@@ -172,18 +173,18 @@ main {
 figure {
   display: flex;
   flex-direction: column;
-  border: 3px solid #fff;
+  /* border: 3px solid #fff; */
   height: 100%;
   margin: 0;
-  /* min-height: 33vh; */
 }
 
 figcaption {
   background-color: var(--axecon-color-2);
+  /* border-block-end: 2px solid var(--axecon-color-4); */
   color: #fff;
   flex: none;
   line-height: 1.1;
-  padding: 2em;
+  padding: var(--stage-spacing);
   text-align: center;
 }
 
@@ -192,12 +193,12 @@ figcaption h2 {
 }
 
 .figtray {
-  /* background: linear-gradient(180deg,#801bd0 5.34%,#003349 96.27%); */
+  background: var(--axecon-color-1);
   container: tray / inline-size;
   display: flex;
   flex: 1 1 100%;
   justify-content: center;
-  padding: 2em;
+  padding: var(--stage-spacing);
 }
 
 .figtray > * {
@@ -209,7 +210,7 @@ figcaption h2 {
 /* ---------------------------------------- */
 
 .game-text-block {
-  padding: 2em;
+  padding: var(--stage-spacing);
 }
 
 .game-text-block__title {
@@ -327,7 +328,9 @@ figure button svg:only-of-type {
 }
 
 figure [role="tooltip"] {
-  background-color: var(--axecon-color-1);
+  --tooltip-background-color: var(--axecon-color-3);
+
+  background-color: var(--tooltip-background-color);
   display: none;
   left: 0;
   padding: 0.5em;
@@ -338,7 +341,7 @@ figure [role="tooltip"] {
 }
 
 figure [role="tooltip"] .arrow {
-  background-color: var(--axecon-color-1);
+  background-color: var(--tooltip-background-color);
   height: 8px;
   position: absolute;
   transform: rotate(45deg);
@@ -487,6 +490,10 @@ figure [role="tooltip"] .arrow {
 /******************************************
  *            FOOTER STYLES               *
  ******************************************/
+
+footer[role="contentinfo"] {
+  background: linear-gradient(180deg,var(--axecon-color-3) 5.34%,var(--axecon-color-2) 96.27%);
+}
 
 footer[role="contentinfo"] a {
   color: #fff;
