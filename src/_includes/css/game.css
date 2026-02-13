@@ -126,16 +126,10 @@ section:has([role="toolbar"]) {
  *              MAIN STYLES               *
  ******************************************/
 
-main {
-  /* background: linear-gradient(180deg,var(--axecon-color-3) 0,var(--axecon-color-4) 100%); */
-  /* backgrosund-color: var(--axecon-color-1); */
-}
-
 #stage {
   --stage-spacing: clamp(1em, 2cqi, 2em);
 
-  /* background: linear-gradient(180deg,var(--axecon-color-3) 5.34%,var(--axecon-color-2) 96.27%); */
-  background-color: #fff;
+  background: linear-gradient(180deg, var(--axecon-color-3) -6.43%, var(--axecon-color-4) 100%);
   container: stage / inline-size;
   padding: var(--stage-spacing);
 }
@@ -143,16 +137,17 @@ main {
 .grid {
   display: grid;
   gap: var(--stage-spacing);
+  min-height: 75dvh;
 }
 
-@media only screen and (min-width: 825px) {
+@media only screen and (min-width: 500px) {
   .grid:has(> *:nth-child(6):last-child) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 900px) {
   .grid:has(> *:nth-child(3):last-child) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -160,30 +155,26 @@ main {
   .grid:has(> *:nth-child(4):last-child) {
     grid-template-columns: repeat(4, 1fr);
   }
-}
 
-@media only screen and (min-width: 1400px) {
   .grid:has(> *:nth-child(6):last-child) {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
-
 
 figure {
   display: flex;
   flex-direction: column;
-  /* border: 3px solid #fff; */
   height: 100%;
   margin: 0;
+  min-height: 33vh;
 }
 
 figcaption {
   background-color: var(--axecon-color-2);
-  /* border-block-end: 2px solid var(--axecon-color-4); */
   color: #fff;
   flex: none;
-  line-height: 1.1;
+  line-height: 1.3;
   padding: var(--stage-spacing);
   text-align: center;
 }
@@ -210,7 +201,8 @@ figcaption h2 {
 /* ---------------------------------------- */
 
 .game-text-block {
-  padding: var(--stage-spacing);
+  padding: 2em;
+  overflow-y: auto;
 }
 
 .game-text-block__title {
@@ -225,7 +217,7 @@ figcaption h2 {
   font-size: 1.125em;
   line-height: 1.5;
   margin-top: 1em;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .game-text-block__blurb + .game-text-block__blurb {
@@ -328,9 +320,10 @@ figure button svg:only-of-type {
 }
 
 figure [role="tooltip"] {
-  --tooltip-background-color: var(--axecon-color-3);
+  --tooltip-background-color: var(--axecon-color-8);
 
   background-color: var(--tooltip-background-color);
+  color: var(--axecon-color-2);
   display: none;
   left: 0;
   padding: 0.5em;
@@ -491,9 +484,9 @@ figure [role="tooltip"] .arrow {
  *            FOOTER STYLES               *
  ******************************************/
 
-footer[role="contentinfo"] {
+/* footer[role="contentinfo"] {
   background: linear-gradient(180deg,var(--axecon-color-3) 5.34%,var(--axecon-color-2) 96.27%);
-}
+} */
 
 footer[role="contentinfo"] a {
   color: #fff;

@@ -7,13 +7,12 @@ tags: game
 layout: "game.njk"
 ---
 
-<!-- THIS IS THE IMPOSTOR -->
 <section id="sample-1" aria-labelledby="sample-1__heading" role="region">
   <figure>
     <figcaption>
       <h2 id="sample-1__heading">Toggle Button #1</h2>
     </figcaption>
-    <div class="figtray background--5" tabindex="0">
+    <div class="figtray" tabindex="0">
       <div 
         data-controller="filters" 
         data-filters-expanded-value="false"
@@ -57,14 +56,13 @@ layout: "game.njk"
     </div>
   </figure>
 </section>
-<!-- THIS IS THE IMPOSTOR -->
 
 <section id="sample-2" aria-labelledby="sample-2__heading" role="region">
   <figure>
     <figcaption>
       <h2 id="sample-2__heading">Toggle Button #2</h2>
     </figcaption>
-    <div class="figtray background--6" tabindex="0">
+    <div class="figtray" tabindex="0">
       <div 
         data-controller="filters" 
         data-filters-expanded-value="false"
@@ -115,7 +113,7 @@ layout: "game.njk"
     <figcaption>
       <h2 id="sample-3__heading">Toggle Button #3</h2>
     </figcaption>
-    <div class="figtray background--4" tabindex="0">
+    <div class="figtray" tabindex="0">
       <div 
         data-controller="filters" 
         data-filters-expanded-value="false"
