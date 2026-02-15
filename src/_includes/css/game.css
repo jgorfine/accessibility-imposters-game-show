@@ -211,12 +211,12 @@ figcaption h2 {
 }
 
 #sample-2 .game-text-block {
-  background-color: var(--axecon-color-4);
+  background-color: var(--axecon-color-5);
   color: #fff;
 }
 
 #sample-3 .game-text-block {
-  background-color: var(--axecon-color-5);
+  background-color: var(--axecon-color-6);
   color: var(--axecon-color-0);
 }
 
@@ -366,7 +366,7 @@ figcaption h2 {
 
   background-color: #fff;
   font-size: 1rem;
-  padding: 2em;
+  padding: 1em;
 }
 
 .game-filters__header {
@@ -379,6 +379,7 @@ figcaption h2 {
 
 .game-filters__date {
   color: var(--filters-color-2);
+  flex: 1 1 10em;
   font-size: 2em;
   font-weight: 300;
   hyphens: auto;

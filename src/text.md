@@ -9,13 +9,13 @@ page_css: "css/text-color.css"
 ---
 
 {% sample "1", "Text Block" %}
-  {% textblock %}{% endtextblock %}
+  {% textblock %}
 {% endsample %}
 
 {% sample "2", "Text Block" %}
-  {% textblock %}{% endtextblock %}
+  {% textblock %}
 {% endsample %}
 
 {% sample "3", "Text Block" %}
-  {% textblock %}{% endtextblock %}
+  {% textblock %}
 {% endsample %}
