@@ -1,12 +1,12 @@
 import CleanCSS from "clean-css";
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPairedNunjucksShortcode("sample", function(content, count, type) { /* … */ });
+  eleventyConfig.addPairedNunjucksShortcode("sample", function(content, count, type, controller) { /* … */ });
 
-  eleventyConfig.addPairedShortcode("sample", function(content, count, type) {
+  eleventyConfig.addPairedShortcode("sample", function(content, count, type, controller) {
     return `<section id="sample-${count}" aria-labelledby="sample-${count}__heading" role="region"><figure>
 <figcaption><h2 id="sample-${count}__heading">${type} #${count}</h2></figcaption>
-<div class="figtray">${content}</figtray>
+<div class="figtray" ${controller && `data-controller="${controller}"`}>${content}</figtray>
 </figure></section>`;
   });
 

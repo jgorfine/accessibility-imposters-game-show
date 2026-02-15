@@ -296,36 +296,45 @@ figcaption h2 {
 /* Game: Icon Buttons */
 /* ---------------------------------------- */
 
-figure button:has(svg:only-of-type) {
+.game-icon-button {
+  --default-button-size: 42px;
+
   align-items: center;
   background-color: var(--axecon-color-2);
   border: none;
   border-radius: 50%;
   color: #fff;
+  cursor: pointer;
   display: inline-flex;
-  height: 42px;
+  height: var(--button-size, var(--default-button-size));
   justify-content: center;
   outline: 1px solid transparent;
-  width: 42px;
+  width: var(--button-size, var(--default-button-size));
 }
 
-figure button:has(svg:only-of-type):hover {
+.game-icon-button.small {
+  --button-size: calc(var(--default-button-size) / 2);
+}
+
+.game-icon-button:hover {
   background-color: #fff;
   color: var(--axecon-color-2);
 }
 
-figure button:has(svg:only-of-type):focus {
+.game-icon-button:focus {
   outline: 3px solid #0dbaf7;
 }
 
-figure button svg:only-of-type {
+.game-icon-button svg {
+  --button-icon-size: calc(var(--button-size, var(--default-button-size)) / 2);
+
   display: block;
   fill: currentColor;
-  height: 24px;
-  width: 24px;
+  height: var(--button-icon-size);
+  width: var(--button-icon-size);
 }
 
-figure [role="tooltip"] {
+.game-icon-button + [role="tooltip"] {
   --tooltip-background-color: var(--axecon-color-8);
 
   background-color: var(--tooltip-background-color);
@@ -339,7 +348,7 @@ figure [role="tooltip"] {
   width: max-content;
 }
 
-figure [role="tooltip"] .arrow {
+.game-icon-button + [role="tooltip"] .arrow {
   background-color: var(--tooltip-background-color);
   height: 8px;
   position: absolute;
