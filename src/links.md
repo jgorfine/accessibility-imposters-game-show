@@ -7,46 +7,18 @@ tags: game
 layout: "game.njk"
 ---
 
-<section id="sample-1" aria-labelledby="sample-1__heading" role="region">
-  <figure>
-    <figcaption>
-      <h2 id="sample-1__heading">Link #1</h2>
-    </figcaption>
-    <div class="figtray" tabindex="0">
-      <a href="https://www.deque.com/axe-con/presenters/" rel="nofollow" class="style--1">Presenters</a>
-    </div>
-  </figure>
-</section>
+{% sample "1", "Link" %}
+  <a class="game-link style--1" href="https://www.deque.com/axe-con/presenters" rel="nofollow">Presenters</a>
+{% endsample %}
 
-<section id="sample-2" aria-labelledby="sample-2__heading" role="region">
-  <figure>
-    <figcaption>
-      <h2 id="sample-2__heading">Link #2</h2>
-    </figcaption>
-    <div class="figtray" tabindex="0">
-      <a href="https://www.deque.com/axe-con/" rel="nofollow" class="style--2">Home</a>
-    </div>
-  </figure>
-</section>
+{% sample "2", "Link" %}
+  <a class="game-link style--2" href="https://www.deque.com/axe-con/" rel="nofollow">Home</a>
+{% endsample %}
 
-<section id="sample-3" aria-labelledby="section-3__heading" role="region">
-  <figure>
-    <figcaption>
-      <h2 id="sample-3__heading">Link #3</h2>
-    </figcaption>
-    <div class="figtray" tabindex="0">
-      <div role="link" class="style--1">2026 Agenda</div>
-    </div>
-  </figure>
-</section>
+{% sample "3", "Link" %}
+  <div class="game-link style--1" role="link">2026 Agenda</div>
+{% endsample %}
 
-<section id="sample-4" aria-labelledby="sample-4__heading" role="region">
-  <figure>
-    <figcaption>
-      <h2 id="sample-4__heading">Link #4</h2>
-    </figcaption>
-    <div class="figtray" tabindex="0">
-      <a href="https://www.deque.com/axe-con/about" rel="nofollow" class="style--1">About</a>
-    </div>
-  </figure>
-</section>
+{% sample "4", "Link" %}
+  <a class="game-link style--1" href="https://www.deque.com/axe-con/about" rel="nofollow">About</a>
+{% endsample %}

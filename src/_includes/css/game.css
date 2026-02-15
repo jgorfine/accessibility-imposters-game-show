@@ -243,25 +243,23 @@ figcaption h2 {
 /* Game: Links */
 /* ---------------------------------------- */
 
-figure a, 
-figure [role="link"] {
-  color: #fff;
+.game-link {
+  cursor: pointer;
   text-decoration: none;
 }
 
-figure a:hover, 
-figure a:active, 
-figure a:visited {
+.game-link, 
+.game-link:hover, 
+.game-link:active, 
+.game-link:visited {
   color: #fff;
 }
 
-figure a:focus, 
-figure [role="link"]:focus {
+.game-link:focus {
   outline: none;
 }
 
-figure a.style--1, 
-figure [role="link"].style--1 {
+.game-link.style--1 {
   background-color: var(--axecon-color-1);
   background-image: linear-gradient(90deg,#e466fa 5px, var(--axecon-color-1) 5px);
   background-position: -5px center;
@@ -269,33 +267,26 @@ figure [role="link"].style--1 {
   display: block;
   font-size: 20px;
   padding: 10px 30px;
-  /* width: 295px; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  figure a.style--1, 
-  figure [role="link"].style--1 {
+  .game-link.style--1 {
     transition: background-position 250ms ease-in-out;
   }
 }
 
-figure a.style--1:hover, 
-figure [role="link"].style--1:hover, 
-figure a.style--1:focus, 
-figure [role="link"].style--1:focus {
+.game-link.style--1:hover, 
+.game-link.style--1:focus {
   background-position: 0 center;
 }
 
-figure a.style--2, 
-figure [role="link"].style--2 {
+.game-link.style--2 {
   color: #fff;
   font-size: 24px;
 }
 
-figure a.style--2:hover, 
-figure [role="link"].style--2:hover, 
-figure a.style--2:focus, 
-figure [role="link"].style--2:focus  {
+.game-link.style--2:hover, 
+.game-link.style--2:focus {
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
