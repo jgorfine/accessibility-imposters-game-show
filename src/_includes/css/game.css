@@ -205,6 +205,21 @@ figcaption h2 {
   overflow-y: auto;
 }
 
+#sample-1 .game-text-block {
+  background-color: var(--axecon-color-3);
+  color: #fff;
+}
+
+#sample-2 .game-text-block {
+  background-color: var(--axecon-color-4);
+  color: #fff;
+}
+
+#sample-3 .game-text-block {
+  background-color: var(--axecon-color-5);
+  color: var(--axecon-color-0);
+}
+
 .game-text-block__title {
   font-size: 1.75em;
   font-weight: 300;
