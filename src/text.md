@@ -8,14 +8,14 @@ layout: "game.njk"
 page_css: "css/text-color.css"
 ---
 
-{% sample "1", "Text Block" %}
+{% sample "1", "Text Block", false %}
   {% textblock %}
 {% endsample %}
 
-{% sample "2", "Text Block" %}
+{% sample "2", "Text Block", true %}
   {% textblock %}
 {% endsample %}
 
-{% sample "3", "Text Block" %}
+{% sample "3", "Text Block", false %}
   {% textblock %}
 {% endsample %}

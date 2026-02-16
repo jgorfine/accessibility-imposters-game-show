@@ -2,6 +2,18 @@ import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/di
 
 window.Stimulus = Application.start();
 
+Stimulus.register("game", class extends Controller {
+  static targets = [ "foo", "dialog" ]
+
+  toggleDialog() {
+    console.log('attempting to toggle dialog');
+
+    this.dialogTargets.forEach((dialog) => {
+      dialog.show();
+    })
+  }
+})
+
 Stimulus.register("toolbar", class extends Controller {
   static targets = [ "control" ]
   static values = { index: Number }

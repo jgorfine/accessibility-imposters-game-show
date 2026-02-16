@@ -7,14 +7,14 @@ tags: game
 layout: "game.njk"
 ---
 
-{% sample "1", "Toggle Button" %}
+{% sample "1", "Toggle Button", true %}
   {% filters "Wednesday February 25", true %}
 {% endsample %}
 
-{% sample "2", "Toggle Button" %}
+{% sample "2", "Toggle Button", false %}
   {% filters "Wednesday, February 25" %}
 {% endsample %}
 
-{% sample "3", "Toggle Button" %}
+{% sample "3", "Toggle Button", false %}
   {% filters "Tuesday February 24" %}
 {% endsample %}

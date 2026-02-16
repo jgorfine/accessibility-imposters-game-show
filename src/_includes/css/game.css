@@ -162,25 +162,33 @@ section:has([role="toolbar"]) {
   }
 }
 
+.sample {
+  display: flex;
+  flex-direction: column;
+}
+
+.sample__heading {
+  background-color: var(--axecon-color-2);
+  color: #fff;
+  flex: none;
+  font-weight: 400;
+  line-height: 1.3;
+  padding: var(--stage-spacing);
+  text-align: center;
+}
+
+.sample__content {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+}
+
 figure {
   display: flex;
   flex-direction: column;
   height: 100%;
   margin: 0;
   min-height: 33vh;
-}
-
-figcaption {
-  background-color: var(--axecon-color-2);
-  color: #fff;
-  flex: none;
-  line-height: 1.3;
-  padding: var(--stage-spacing);
-  text-align: center;
-}
-
-figcaption h2 {
-  font-weight: 400;
 }
 
 .figtray {
@@ -190,10 +198,33 @@ figcaption h2 {
   flex: 1 1 100%;
   justify-content: center;
   padding: var(--stage-spacing);
+  position: relative;
 }
 
 .figtray > * {
   margin: auto;
+}
+
+.test1 {
+  display: none;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+dialog {
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+}
+
+.test2 {
+  background-color: black;
+  content: " ";
+  height: 100%;
+  width: 100%;
 }
 
 /* ---------------------------------------- */
@@ -313,7 +344,7 @@ figcaption h2 {
 }
 
 .game-icon-button.small {
-  --button-size: calc(var(--default-button-size) / 2);
+  --button-size: 24px;
 }
 
 .game-icon-button:hover {

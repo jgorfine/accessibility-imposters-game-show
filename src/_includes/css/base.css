@@ -55,6 +55,10 @@ button {
   border-width: 0;
 }
 
+.relative {
+  position: relative;
+}
+
 .background--white {
   background-color: #fff;
 }

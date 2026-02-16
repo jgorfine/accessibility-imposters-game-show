@@ -7,18 +7,18 @@ tags: game
 layout: "game.njk"
 ---
 
-{% sample "1", "Link" %}
+{% sample "1", "Link", false %}
   <a class="game-link style--1" href="https://www.deque.com/axe-con/presenters" rel="nofollow">Presenters</a>
 {% endsample %}
 
-{% sample "2", "Link" %}
+{% sample "2", "Link", false %}
   <a class="game-link style--2" href="https://www.deque.com/axe-con/" rel="nofollow">Home</a>
 {% endsample %}
 
-{% sample "3", "Link" %}
+{% sample "3", "Link", true %}
   <div class="game-link style--1" role="link">2026 Agenda</div>
 {% endsample %}
 
-{% sample "4", "Link" %}
+{% sample "4", "Link", false %}
   <a class="game-link style--1" href="https://www.deque.com/axe-con/about" rel="nofollow">About</a>
 {% endsample %}
